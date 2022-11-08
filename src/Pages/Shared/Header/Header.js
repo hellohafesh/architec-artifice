@@ -11,9 +11,11 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
+                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/services'>services</Link></li>
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
-                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
-                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
+                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/blogs'>blogs</Link></li>
+                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
+                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/singup'>singup</Link></li>
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case font-bold text-xl">Architec Artifice</Link>
@@ -21,9 +23,11 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-3">
                     <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
+                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/services'>services</Link></li>
                     <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
-                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
-                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
+                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/blogs'>blogs</Link></li>
+                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
+                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/singup'>singup</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
