@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Singup = () => {
     const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext);
@@ -89,7 +90,16 @@ const Singup = () => {
 
                         </form>
                         <p className='text-center'> Have an Account <Link to='/login' className="text-primary label-text-alt link link-hover font-bold">Login</Link></p>
-                        <button className='btn btn-primary' onClick={googleSingIn} >google</button>
+                        <div className="text-center">
+                            <h5><b>or sign up with:</b></h5>
+                            <button type="button" onClick={googleSingIn} className="btn btn-primary btn-outline btn-floating m-2">
+                                <FaGoogle style={{ height: "40px", width: "40px" }} />
+                            </button>
+
+                            <button type="button" className="btn btn-primary btn-outline btn-floating m-2">
+                                <FaGithub style={{ height: "40px", width: "40px" }} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

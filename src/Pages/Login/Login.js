@@ -1,9 +1,22 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
+
     const { singIn, googleProviderLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
+    const googleSingIn = () => {
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -51,7 +64,16 @@ const Login = () => {
                             </div>
                         </form>
                         <p className='text-center'> Create an Account <Link to='/singup' className="label-text-alt text-primary link font-bold link-hover">Singin</Link></p>
+                        <div className="text-center">
+                            <h5><b>or sign up with:</b></h5>
+                            <button type="button" onClick={googleSingIn} className="btn btn-primary btn-outline btn-floating m-2">
+                                <FaGoogle style={{ height: "40px", width: "40px" }} />
+                            </button>
 
+                            <button type="button" className="btn btn-primary btn-outline btn-floating m-2">
+                                <FaGithub style={{ height: "40px", width: "40px" }} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
