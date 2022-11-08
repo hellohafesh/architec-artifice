@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
+    const { user, logout } = useContext(AuthContext);
+    const logouthbutton = () => [
+        logout()
+            .then(() => { })
+            .catch(error => console.error(error))
+    ]
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -14,8 +23,20 @@ const Header = () => {
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/services'>services</Link></li>
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/blogs'>blogs</Link></li>
-                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
-                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/singup'>singup</Link></li>
+
+                        {user?.uid ? <>
+
+                            <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li>
+                        </>
+                            :
+                            <>
+
+                                <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
+                            </>
+                        }
+
+
+
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case font-bold text-xl">Architec Artifice</Link>
@@ -26,14 +47,25 @@ const Header = () => {
                     <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/services'>services</Link></li>
                     <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
                     <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/blogs'>blogs</Link></li>
-                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
-                    <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/singup'>singup</Link></li>
+
+                    {user?.uid ? <>
+
+                        <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li>
+                    </>
+                        :
+                        <>
+
+                            <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
+                        </>
+                    }
                 </ul>
             </div>
             <div className="navbar-end">
 
                 <div className="w-10 rounded-full">
-                    <img className='rounded-full' src="https://scontent.fdac24-1.fna.fbcdn.net/v/t1.15752-9/312458179_644695647143147_5481044752098789577_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeGWlH-V0UE6SG3-UpyrhavSfDYWaUL6QjB8NhZpQvpCML27rlAJQRsDlxNnAs7bEfvty94ooB92GkN8roeo0lpO&_nc_ohc=jAzcqW5x2r0AX-imH_B&_nc_ht=scontent.fdac24-1.fna&oh=03_AdRqU1DoXi4DtTc90SjosxXFINY_zQngBZZPuWmoHunQIg&oe=63915AA2" alt='' />
+                    {
+                        user?.photoURL ? <img title={user?.displayName} alt='' className='rounded-full' src={user?.photoURL}></img> : <FontAwesomeIcon className='rounded-full' style={{ height: '40px', width: '40px', borderRadius: '50px' }} icon={faCircleUser} />
+                    }
                 </div>
             </div>
         </div>

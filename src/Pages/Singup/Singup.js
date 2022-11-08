@@ -1,7 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Singup = () => {
+    const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
+
+
+
+    const googleSingIn = () => {
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.url.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+
+                form.reset();
+                handleUserProfile(name, photoURL);
+
+            })
+            .catch(error => {
+                console.error(error.message);
+            });
+        const handleUserProfile = (name, photoURL) => {
+            const profile = {
+                displayName: name,
+                photoURL: photoURL
+            }
+            updateUserProfile(profile)
+                .then(() => { })
+                .catch(error => console.log(error));
+        }
+
+
+    }
     return (
         <div>
             <div className="hero w-full bg-base-200">
@@ -9,7 +57,7 @@ const Singup = () => {
 
                     <div className="card  w-full max-w-md shadow-3xl bg-base-100 p-4">
                         <h1 className="text-3xl text-center p-3 font-bold">Singup now!</h1>
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -26,7 +74,7 @@ const Singup = () => {
                                 <label className="label">
                                     <span className="label-text">Image URL</span>
                                 </label>
-                                <input type="text" placeholder="Image URL" name='url' className="input input-bordered" required />
+                                <input type="text" placeholder="Image URL" name='url' className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -41,7 +89,7 @@ const Singup = () => {
 
                         </form>
                         <p className='text-center'> Have an Account <Link to='/login' className="text-primary label-text-alt link link-hover font-bold">Login</Link></p>
-
+                        <button className='btn btn-primary' onClick={googleSingIn} >google</button>
                     </div>
                 </div>
             </div>
