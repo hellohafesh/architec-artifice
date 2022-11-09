@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
@@ -7,13 +7,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const service = useLoaderData();
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?id=${service._id}`)
+
+            .then(res => res.json())
+            .then(data => setReviews(data));
+    }, [service?._id]);
+
+
+
     const handleComment = event => {
         event.preventDefault();
         const form = event.target;
         const comment = form.comment.value;
         const rating = form.rating.value;
-
-
         const review = {
             service: service._id,
             serviceName: service.title,
@@ -22,7 +31,6 @@ const ServiceDetails = () => {
             photo: user.photoURL,
             rating
         }
-
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
@@ -40,8 +48,8 @@ const ServiceDetails = () => {
                 }
             })
             .catch(err => console.error(err));
-
     }
+    console.log(reviews);
     return (
         <div>
             <h1 className='text-5xl text-center mb-10'>  ServiceDetails</h1>
@@ -73,13 +81,15 @@ const ServiceDetails = () => {
             <h1 className='text-center text-3xl'>{service.title} Service Review</h1>
             <div className=" border-solid rounded m-5 border-2 border-sky-500">
                 <div className="p-10">
-                    <h1>All Comment</h1>
+                    <h1>All Comment{reviews.length}</h1>
 
-                    <h3>12345465789865432</h3>
-                    <h3>12345465789865432</h3>
-                    <h3>12345465789865432</h3>
-                    <h3>12345465789865432</h3>
-                    <h3>12345465789865432</h3>
+                    {
+                        reviews.map(r => <div>
+                            <img alt='' style={{ height: '40px', width: '40px' }} className='rounded-full' src={r.photo}></img>
+                            <p>Comment : {r.comment}</p>
+                            <p>RAting : {r.rating}</p>
+                        </div>)
+                    }
                 </div>
 
                 <div className="flex  bg-white-800 ">

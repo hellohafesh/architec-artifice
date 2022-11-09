@@ -6,8 +6,32 @@ const ReviewTable = ({ reviw, handleDelete }) => {
     const handleUpdate = event => {
         event.preventDefault();
         const form = event.target;
-        const comment = form.comment.value;
-        console.log(comment)
+        const acomment = form.comment.value;
+        console.log(acomment);
+
+
+        // fetch(`http://localhost:5000/myreviews/${id}`, {
+        //     method: 'PATCH',
+        //  headers: {
+        // 'content-type': 'application/json'
+        // },
+        // body: JSON.stringify(acomment)
+        // })
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             console.log(data)
+        //             if (data.modifiedCount > 0) {
+        //                 alert('Update Succes')
+        //                 const remaining = review.filter(r => r._id != id);
+        // const aprove = review.find(r => r._id === id);
+        // aprove.acomment = acomment;
+        // const newReview = [...remaining,aprove]
+        //                 setreview(newReview);
+        //             }
+        //         });
+    }
+    const buttonhandle = id => {
+        console.log(id);
     }
 
     return (
@@ -33,13 +57,13 @@ const ReviewTable = ({ reviw, handleDelete }) => {
                 <div className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Edit Your Comment</h3>
-                        <form onClick={handleUpdate} className=''>
+                        <form onSubmit={handleUpdate} className=''>
                             <input type="text" name="comment" placeholder="Add A Title" className="input border border-sky-500  mb-5 input-bordered " defaultValue={comment} /> <br />
-                            <input type="submit" className="input border border-sky-500  mb-5 input-bordered " value="Change" />
+                            <input type="submit" onClick={() => buttonhandle(_id)} className="input border border-sky-500  mb-5 input-bordered " value="Change" />
 
                         </form>
                         <div className="modal-action">
-                            <label htmlFor="my-modal-6" className="btn">Yay!</label>
+                            <label htmlFor="my-modal-6" className="btn">Cancle</label>
                         </div>
                     </div>
                 </div>
