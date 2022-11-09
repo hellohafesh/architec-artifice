@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
@@ -7,7 +7,10 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 const Singup = () => {
     const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
-
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
 
@@ -16,8 +19,11 @@ const Singup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
+
+        setError(error.message)
     }
     const handleSubmit = event => {
         event.preventDefault();
@@ -34,10 +40,12 @@ const Singup = () => {
 
                 form.reset();
                 handleUserProfile(name, photoURL);
-
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error.message);
+
+                setError(error.message)
             });
         const handleUserProfile = (name, photoURL) => {
             const profile = {
@@ -45,7 +53,9 @@ const Singup = () => {
                 photoURL: photoURL
             }
             updateUserProfile(profile)
-                .then(() => { })
+                .then(() => {
+                    navigate(from, { replace: true });
+                })
                 .catch(error => console.log(error));
         }
 
@@ -82,6 +92,7 @@ const Singup = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                <p className=' mb-4 ps-lg-5 text-error'>{error}</p>
 
                             </div>
                             <div className="form-control mt-6">

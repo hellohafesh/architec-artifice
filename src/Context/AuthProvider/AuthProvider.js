@@ -8,25 +8,30 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const googleProviderLogin = (provider) => {
+        setLoading(false);
+        return signInWithPopup(auth, provider);
+    }
     const createUser = (email, password) => {
         setLoading(false);
         return createUserWithEmailAndPassword(auth, email, password);
     }
-    const googleProviderLogin = (provider) => {
-        return signInWithPopup(auth, provider);
-    }
-    const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
-    }
+
     const singIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
 
     }
+    const updateUserProfile = (profile) => {
+
+        return updateProfile(auth.currentUser, profile);
+    }
 
     const logout = () => {
         setLoading(true);
         return signOut(auth);
+
     }
 
     useEffect(() => {
@@ -47,7 +52,8 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         googleProviderLogin,
         singIn,
-        logout
+        logout,
+        setLoading
     }
     return (
 

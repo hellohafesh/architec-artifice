@@ -5,6 +5,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Singup from "../../Pages/Singup/Singup";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blogs',
-                element: <Blogs></Blogs>
+                element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
             },
             {
                 path: '/login',

@@ -1,14 +1,20 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const { user, logout } = useContext(AuthContext);
     const logouthbutton = () => [
         logout()
-            .then(() => { })
+            .then(() => {
+
+                navigate(from, { replace: true });
+            })
             .catch(error => console.error(error))
     ]
     return (
@@ -24,15 +30,15 @@ const Header = () => {
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Home</Link></li>
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/blogs'>blogs</Link></li>
 
-                        {user?.uid ? <>
+                        {user?.uid ?
 
                             <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li>
-                        </>
-                            :
-                            <>
 
-                                <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
-                            </>
+                            :
+
+
+                            <li className='font-semibold'><Link className='btn btn-outline btn-primary m-3' to='/login'>login</Link></li>
+
                         }
 
 
