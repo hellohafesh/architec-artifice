@@ -32,7 +32,7 @@ const Header = () => {
                             <>
                                 <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/blogs'>My Reviews</Link></li>
 
-                                <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Add Service</Link></li>
+                                <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/addservice'>Add Service</Link></li>
                                 <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li></>
 
                             :
@@ -57,7 +57,7 @@ const Header = () => {
                     {user?.uid ? <>
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/blogs'>My Reviews</Link></li>
 
-                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/'>Add Service</Link></li>
+                        <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/addservice'>Add Service</Link></li>
                         <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li>
                     </>
                         :

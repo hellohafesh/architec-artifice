@@ -67,7 +67,7 @@ const ServiceDetails = () => {
 
                         {
                             user ? <form className="mt-3 p-3 w-full">
-                                <input rows="3" name='comment' className="border p-2 mb-3 border-sky-500 rounded w-1/2 h-20" placeholder="Write your Comment..." type="text" /> <br />
+                                <input rows="3" name='comment' className="border border-sky-500  p-2 mb-3 rounded w-1/2 h-20" placeholder="Write your Comment..." type="text" /> <br />
 
                                 <label for="cars">Choose a Rating:</label>
                                 <br />
