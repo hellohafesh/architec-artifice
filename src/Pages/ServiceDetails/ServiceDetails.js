@@ -6,7 +6,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
-    const service = useLoaderData()
+    const service = useLoaderData();
+    const handleComment = event => {
+        event.preventDefault();
+        const form = event.target;
+        const comment = form.comment.value;
+        const rating = form.rating.value;
+
+
+        const review = {
+            service: service._id,
+            serviceName: service.title,
+            email: user.email,
+            comment,
+            photo: user.photoURL,
+            rating
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    alert("Comment Posted");
+                    form.reset();
+
+                }
+            })
+            .catch(err => console.error(err));
+
+    }
     return (
         <div>
             <h1 className='text-5xl text-center mb-10'>  ServiceDetails</h1>
@@ -66,8 +101,8 @@ const ServiceDetails = () => {
                         </div>
 
                         {
-                            user ? <form className="mt-3 p-3 w-full">
-                                <input rows="3" name='comment' className="border border-sky-500  p-2 mb-3 rounded w-1/2 h-20" placeholder="Write your Comment..." type="text" /> <br />
+                            user ? <form onSubmit={handleComment} className="mt-3 p-3 w-full">
+                                <input rows="3" name='comment' className="border border-sky-500  p-2 mb-3 rounded w-1/2 h-20" placeholder="Write your Comment..." type="text" required /> <br />
 
                                 <label for="cars">Choose a Rating:</label>
                                 <br />

@@ -1,10 +1,48 @@
 import React from 'react';
 
 const AddService = () => {
+
+
+    const addService = event => {
+        event.preventDefault();
+        const form = event.target;
+        const title = form.title.value;
+        const img = form.img.value;
+        const price = form.price.value;
+        const description = form.description.value;
+
+
+        const service = {
+
+            title,
+            img,
+            price,
+            description
+        }
+
+        fetch('http://localhost:5000/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    alert("Add a Service");
+                    form.reset();
+
+                }
+            })
+            .catch(err => console.error(err));
+    }
+
     return (
         <div>
             <h1 className='text-4xl text-center'>Add A New Service</h1>
-            <form className=" p-5 ">
+            <form onSubmit={addService} className=" p-5 ">
                 <input type="text" name="title" placeholder="Add A Title" className="input border border-sky-500  mb-5 input-bordered w-full" />
                 <input type="text" name="img" placeholder="Add A Image Link" className="input border border-sky-500  mb-5 input-bordered w-full" />
                 <input type="text" name="price" placeholder="Add A Price" className="input border border-sky-500  mb-5 input-bordered w-full" />
