@@ -104,7 +104,7 @@ const ServiceDetails = () => {
                             user ? <form onSubmit={handleComment} className="mt-3 p-3 w-full">
                                 <input rows="3" name='comment' className="border border-sky-500  p-2 mb-3 rounded w-1/2 h-20" placeholder="Write your Comment..." type="text" required /> <br />
 
-                                <label for="cars">Choose a Rating:</label>
+                                <label>Choose a Rating:</label>
                                 <br />
                                 <select id="cars" className='border border-sky-500 rounded w-1/5 h-10 ' name="rating">
                                     <option value="1">1</option>
@@ -121,7 +121,7 @@ const ServiceDetails = () => {
                             </form> :
                                 <div className=''>
                                     <input rows="3" className="border  border-sky-500 mb-5 p-2 rounded w-1/2 h-20" placeholder="Write your Comment..." type="text" /> <br />
-                                    <label for="cars">Choose a Rating:</label>
+                                    <label>Choose a Rating:</label>
                                     <br />
                                     <select id="cars" className='border border-sky-500 mb-5 rounded w-1/5 h-10 ' name="rating">
                                         <option value="1">1</option>

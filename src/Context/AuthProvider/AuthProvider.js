@@ -10,11 +10,11 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const googleProviderLogin = (provider) => {
-        setLoading(false);
+        setLoading(true);
         return signInWithPopup(auth, provider);
     }
     const createUser = (email, password) => {
-        setLoading(false);
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
