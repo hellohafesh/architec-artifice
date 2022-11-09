@@ -7,10 +7,11 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 const Login = () => {
     const [error, setError] = useState('');
     const { singIn, setLoading, googleProviderLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    const googleProvider = new GoogleAuthProvider();
+
 
     console.log(from);
     const googleSingIn = () => {

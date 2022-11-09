@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AllService = () => {
     const [allservices, setAllservices] = useState([]);
@@ -20,7 +21,7 @@ const AllService = () => {
                                 <h2 className="card-title">New album is released!</h2>
                                 <p>Click the button to listen on Spotiwhy app.</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Details</button>
+                                    <Link to={`/services/${service._id}`} className="btn btn-primary">Details</Link>
                                 </div>
                             </div>
                         </div>
