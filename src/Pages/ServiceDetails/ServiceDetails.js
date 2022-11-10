@@ -43,13 +43,25 @@ const ServiceDetails = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     alert("Comment Posted");
-                    form.reset();
+
+                    if (data.insertedId.length > 0) {
+                        const newRev = review;
+                        console.log(newRev);
+                        const allrev = reviews;
+
+                        const totalreview = [newRev, ...allrev];
+                        console.log(totalreview);
+                        setReviews(totalreview);
+                        form.reset();
+
+                    }
+
+
 
                 }
             })
             .catch(err => console.error(err));
     }
-    console.log(reviews);
     return (
         <div>
             <h1 className='text-5xl text-center mb-10'>  ServiceDetails</h1>
@@ -84,7 +96,7 @@ const ServiceDetails = () => {
                     <h1>All Comment{reviews.length}</h1>
 
                     {
-                        reviews.map(r => <div>
+                        reviews.map(r => <div key={r._id}>
                             <img alt='' style={{ height: '40px', width: '40px' }} className='rounded-full' src={r.photo}></img>
                             <p>Comment : {r.comment}</p>
                             <p>RAting : {r.rating}</p>
