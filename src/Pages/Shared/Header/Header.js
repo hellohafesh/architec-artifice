@@ -33,7 +33,7 @@ const Header = () => {
                                 <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/myreview'>My Reviews</Link></li>
 
                                 <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/addservice'>Add Service</Link></li>
-                                <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li></>
+                                <li className='font-semibold'><button onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</button></li></>
 
                             :
 
@@ -58,7 +58,7 @@ const Header = () => {
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/myreview'>My Reviews</Link></li>
 
                         <li className='font-semibold' ><Link className='btn btn-outline btn-primary m-3' to='/addservice'>Add Service</Link></li>
-                        <li className='font-semibold'><Link onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</Link></li>
+                        <li className='font-semibold'><button onClick={logouthbutton} className='btn btn-outline btn-primary m-3' to='/singup'>Logout</button></li>
                     </>
                         :
                         <>
