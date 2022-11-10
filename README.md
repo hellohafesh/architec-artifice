@@ -29,6 +29,8 @@ live website link : https://architec-artifice.web.app/
 
 ⚪And at the same time here some information and data related to our website are analyzed and told about why we are the best and then some information related to how they are users are given as support.
 
+⚪Environment variables are used here so that no one can easily find the firebase information and all the secret information including all the information of Parvage is hidden through environment variables.
+
 ⚪The website has login and password validation.
 
 ⚪If login and password do not match then it will show as error
