@@ -3,13 +3,22 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ReviewTable from './ReviewTable';
 
 const MyReview = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     const [review, setreview] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user.email}`)
+        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
 
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    logout()
+                }
+                return res.json()
+            })
             .then(data => setreview(data));
     }, [user?.email])
 

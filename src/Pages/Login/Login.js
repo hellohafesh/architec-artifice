@@ -17,6 +17,22 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                const carrentUser = {
+                    email: user.email
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(carrentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('token', data.token);
+
+                    });
+
                 navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
@@ -30,8 +46,26 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                const carrentUser = {
+                    email: user.email
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(carrentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('token', data.token);
+
+                    });
+
                 form.reset();
                 navigate(from, { replace: true });
+
+
             })
             .catch(error => {
                 console.log(error);
