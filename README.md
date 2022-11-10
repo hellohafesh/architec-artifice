@@ -1,70 +1,50 @@
 # Getting Started with Create React App
+live website link : https://architec-artifice.web.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+⚪Name of the website architec-artific.
 
-## Available Scripts
+⚪The website that I have created is basically a service website. Here some service names are given. A person provides some services and users can take services according to their needs and review them according to their needs.
+ 
+⚪The website is primarily built with React using tailwind and the website is built with Firebase and mongodb.
 
-In the project directory, you can run:
+⚪Here MongDB is used as the database and this review all service information provided by a user is stored in MongDB database from where a user can be displayed and a normal user can see it.
 
-### `npm start`
+⚪Here localhost user is used for security purpose so that no unauthorized user or person can view any stored data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+⚪And in the review section, the link of the user's comment user's photo of the service ID is stored so that later in the comment, those reviews can be shown to other users according to each service. Comments are added so that other users can understand who made the comment
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+⚪Here users can provide their reviews and see how many reviews they have given and from here users can delete reviews.
 
-### `npm test`
+⚪An unauthorized user will only be able to view reviews of each service but must be logged in to provide reviews and provided login access via email and Google account.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+⚪A user can add a service as per his wish to add the service described in the assignment and it will be displayed on all service pages
 
-### `npm run build`
+⚪And this website has server versus applied
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+⚪Also used cards and components with some installations from daisy ui mamba ui
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+⚪The website is deployed from the server side of the website.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+⚪Here Fontawsome Icon then react icon react icon these are used.
 
-### `npm run eject`
+⚪And at the same time here some information and data related to our website are analyzed and told about why we are the best and then some information related to how they are users are given as support.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+⚪Environment variables are used here so that no one can easily find the firebase information and all the secret information including all the information of Parvage is hidden through environment variables.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+⚪The website has login and password validation.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+⚪If login and password do not match then it will show as error
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+⚪And the login is provided,
 
-## Learn More
+⚪a unregistered user cannot enter the website and to access the website he has to sign up or sign up with a google account .
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+⚪The blog page has answers to some of the questions asked for the assignment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚪Four questions are answered on the blog page
 
-### Code Splitting
+⚪In the footer there is some information about e-mail subscriptions and then there are some logos that when clicked will automatically take you to those pages on social media sites.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+⚪And the website is basically all commands and installation process done through note package manager and coded through Visual Studio Court these apps.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+⚪And on the first page some services are shown and below it there is a button named C All which if clicked will take you to the page of all services and each service card has a button attached called Details button where if clicked it will take you to the details page of that service and from there the Service details price rate and everything can be monitored
