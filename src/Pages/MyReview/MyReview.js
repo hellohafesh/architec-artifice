@@ -7,7 +7,7 @@ const MyReview = () => {
     const [review, setreview] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+        fetch(`https://architec-artifice-server.vercel.app/myreviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -25,7 +25,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const progress = window.confirm('Are You Sure delete it');
         if (progress) {
-            fetch(`http://localhost:5000/myreviews/${id}`, {
+            fetch(`https://architec-artifice-server.vercel.app/myreviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

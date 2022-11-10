@@ -11,7 +11,7 @@ const ReviewTable = ({ reviw, handleDelete }) => {
     //     console.log(acomment);
 
 
-    // fetch(`http://localhost:5000/myreviews/${id}`, {
+    // fetch(`https://architec-artifice-server.vercel.app/myreviews/${id}`, {
     //     method: 'PATCH',
     //  headers: {
     // 'content-type': 'application/json'

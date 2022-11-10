@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const AllService = () => {
     const [allservices, setAllservices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://architec-artifice-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setAllservices(data))
     }, [])
