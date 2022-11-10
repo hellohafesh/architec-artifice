@@ -103,13 +103,11 @@ const Singup = () => {
                         <p className='text-center'> Have an Account <Link to='/login' className="text-primary label-text-alt link link-hover font-bold">Login</Link></p>
                         <div className="text-center">
                             <h5><b>or sign up with:</b></h5>
-                            <button type="button" onClick={googleSingIn} className="btn btn-primary btn-outline btn-floating m-2">
-                                <FaGoogle style={{ height: "40px", width: "40px" }} />
+                            <button onClick={googleSingIn} type="button" className="btn p-2 btn-primary btn-outline btn-floating m-2">
+                                <FaGoogle style={{ height: "35px", width: "35px" }} />
                             </button>
 
-                            <button type="button" className="btn btn-primary btn-outline btn-floating m-2">
-                                <FaGithub style={{ height: "40px", width: "40px" }} />
-                            </button>
+
                         </div>
                     </div>
                 </div>

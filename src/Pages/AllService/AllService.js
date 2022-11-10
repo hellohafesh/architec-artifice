@@ -14,7 +14,6 @@ const AllService = () => {
         <div>
             <h1 className='mb-10 text-center text-primary font-bold text-4xl'>ALL Services</h1>
             <div className="grid grid-cols-1 justify-items-center justify-center content-center md:grid-cols-2 lg:grid-cols-3 ">
-
                 {
                     allservices.map(service => <div key={service._id} className="max-w-xs mb-10 rounded-md shadow-md bg-blue-100 text-black">
                         <PhotoProvider>

@@ -39,7 +39,9 @@ const Footer = () => {
                     <p>Architec Artifice. <br /> ©2022 All rights reserved</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
-                    <div className="grid grid-flow-col gap-4">
+                    <div className="grid text-primary grid-flow-col gap-2">
+
+
                         <FaFacebook style={{ height: "30px", width: "30px" }} />
                         <FaTwitter style={{ height: "30px", width: "30px" }} />
                         <FaLinkedin style={{ height: "30px", width: "30px" }} />

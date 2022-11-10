@@ -9,8 +9,6 @@ const ReviewTable = ({ reviw, handleDelete }) => {
     //     const form = event.target;
     //     const acomment = form.comment.value;
     //     console.log(acomment);
-
-
     // fetch(`https://architec-artifice-server.vercel.app/myreviews/${id}`, {
     //     method: 'PATCH',
     //  headers: {
@@ -31,9 +29,9 @@ const ReviewTable = ({ reviw, handleDelete }) => {
     //             }
     //         });
     // }
-    const buttonhandle = id => {
-        console.log(id);
-    }
+    // const buttonhandle = id => {
+    //     console.log(id);
+    // }
 
     return (
 
